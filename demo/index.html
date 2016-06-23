@@ -12,6 +12,9 @@
     <link rel="import" href="../bloombox-account.html">
 
     <style is="custom-style" include="demo-pages-shared-styles">
+      .vertical-section-container.centered {
+        max-width: 700px !important;
+      }
     </style>
   </head>
   <body>
@@ -20,7 +23,11 @@
       <h3>Basic bloombox-account Demo</h3>
       <demo-snippet>
         <template>
-          <bloombox-account></bloombox-account>
+          <bloombox-account
+            key="abatin"
+            label="Abatin Wellness"
+            locations='[{"phone":"+19163419482","address":{"zip":"95811","address":"1108 R Street #403","state":"CA","longitude":null,"latitude":null,"city":"Sacramento"},"website":"abatinsacramento.com","label":"Sacramento","key":"sacramento"}]'
+            account='{"licensing":{"bloombox":{"locations":4,"stations":16}},"org":{"id":"70ee-f33e-4b46","label":"Abatin Wellness","legal":"Abatin Wellness, Inc.","ein":"12-1234567"}}'></bloombox-account>
         </template>
       </demo-snippet>
     </div>
