@@ -1,27 +1,80 @@
+
+<!--
+`<bloombox-account>` displays info for the current partner-level account.
+
+@group Bloombox Elements
+@element bloombox-apothecary
+@demo demo/index.html
+@homepage bloombox.github.io
+-->
+
 <link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../bloombox-partner-info/bloombox-partner-info.html">
+
 
 <dom-module id="bloombox-account">
   <template>
-    <style>
+    <style is="custom-style">
       :host {
         display: block;
       }
     </style>
-    <h2>Hello [[prop1]]</h2>
+    
+    <div class="card-section profile-cards">
+      <div class="profile-card">
+        <bloombox-partner-info
+          id="partnerInfo"
+          code="[[key]]"
+          label="[[label]]"
+          account="[[account.org.id]]"
+          ein="[[account.org.ein]]"
+          legal="[[account.org.legal]]"></bloombox-partner-info><!-- end bloombox-partner-info -->
+      </div><!-- end div.org-info -->  
+    </div><!-- end div.profile-section.profile-cards -->
   </template>
 
   <script>
     Polymer({
-
       is: 'bloombox-account',
 
       properties: {
-        prop1: {
+        /**
+         * Short string uniquely identifying this partner.
+         */
+        key: {
           type: String,
-          value: 'bloombox-account',
+          notify: true,
+          reflectToAttribute: true
         },
-      },
 
+        /**
+         * String label for this partner. Any simple string name will do.
+         */
+        label: {
+          type: String,
+          notify: true,
+          reflectToAttribute: true
+        },
+
+        /**
+         * Array of partner location objects.
+         */
+        locations: {
+          type: Array,
+          notify: true,
+          reflectToAttribute: true
+        },
+
+        /**
+         * Organization account data, including info like an EIN and persistence
+         * key.
+         */
+        account: {
+          type: Object,
+          notify: true,
+          reflectToAttribute: true
+        }
+      }
     });
   </script>
 </dom-module>
