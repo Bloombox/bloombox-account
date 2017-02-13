@@ -1,5 +1,6 @@
 {
   "name": "bloombox-account",
+  "version": "0.0.1",
   "description": "Displays info for the current partner-level account.",
   "main": "bloombox-account.html",
   "dependencies": {
